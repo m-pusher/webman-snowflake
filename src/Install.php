@@ -1,5 +1,5 @@
 <?php
-namespace Mpusher\WebmanSnowflake;
+namespace Mpusher\Snowflake;
 
 class Install
 {
