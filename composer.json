@@ -1,5 +1,5 @@
 {
-  "name": "mpusher/webman-snowflake",
+  "name": "mpusher/snowflake",
   "type": "library",
   "license": "MIT",
   "require": {
@@ -9,7 +9,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Mpusher\\WebmanSnowflake\\": "src"
+      "Mpusher\\Snowflake\\": "src"
     }
   }
 }

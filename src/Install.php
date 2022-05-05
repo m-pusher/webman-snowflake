@@ -9,7 +9,7 @@ class Install
      * @var array
      */
     protected static $pathRelation = array (
-  'config/plugin/mpusher/webman-snowflake' => 'config/plugin/mpusher/webman-snowflake',
+  'config/plugin/mpusher/snowflake' => 'config/plugin/mpusher/snowflake',
 );
 
     /**
