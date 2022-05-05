@@ -1,0 +1,14 @@
+{
+  "name": "mpusher/webman-snowflake",
+  "type": "library",
+  "license": "MIT",
+  "require": {
+    "workerman/webman-framework": "^1.2.1",
+    "godruoyi/php-snowflake": "^2.0.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "Mpusher\\Snowflake\\": "src"
+    }
+  }
+}
