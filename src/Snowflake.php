@@ -26,7 +26,7 @@ class Snowflake
      */
     public static function config(array $config = [], $workerId)
     {
-        static::$snowflake = new Snow();
+        static::$snowflake = new Snow($config['data_center_id'], $workerId);
         static::$snowflake->setStartTimeStamp($config['start_time'] ?? strtotime('Y-m-d') * 1000);
         $redis = $config['redis'] ?? [];
         if (empty($redis)) {
