@@ -20,6 +20,13 @@ class Snowflake
     protected static $snowflake;
 
     /**
+     * isSequenceResolverReady
+     *
+     * @var boolean
+     */
+    protected static $isSequenceResolverReady = false;
+
+    /**
      * setconfig
      *
      * @return void
@@ -28,9 +35,6 @@ class Snowflake
     {
         static::$snowflake = new Snow($config['data_center_id'], $workerId);
         static::$snowflake->setStartTimeStamp($config['start_time'] ?? strtotime('Y-m-d') * 1000);
-        Redis::get(1);
-        $seq = new RedisSequenceResolver(Redis::client());
-        static::$snowflake->setSequenceResolver($seq);
     }
 
     /**
@@ -40,6 +44,11 @@ class Snowflake
      */
     public static function generate()
     {
+        if (self::$isSequenceResolverReady === false) {
+            $seq = new RedisSequenceResolver(Redis::client());
+            static::$snowflake->setSequenceResolver($seq);
+            self::$isSequenceResolverReady = true;
+        }
         return self::$snowflake->id();
     }
 }
