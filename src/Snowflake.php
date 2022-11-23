@@ -28,7 +28,8 @@ class Snowflake
     {
         static::$snowflake = new Snow($config['data_center_id'], $workerId);
         static::$snowflake->setStartTimeStamp($config['start_time'] ?? strtotime('Y-m-d') * 1000);
-        $seq = new RedisSequenceResolver(Redis::connection()->client());
+        Redis::get(1);
+        $seq = new RedisSequenceResolver(Redis::client());
         static::$snowflake->setSequenceResolver($seq);
     }
 
